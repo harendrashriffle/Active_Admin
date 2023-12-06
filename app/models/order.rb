@@ -5,4 +5,8 @@ class Order < ApplicationRecord
 
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :address, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["address", "created_at", "id", "price", "updated_at", "user_id"]
+  end
 end

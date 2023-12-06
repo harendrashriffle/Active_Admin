@@ -1,8 +1,10 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Owner do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-
+  #
+  # Uncomment all parameters which should be permitted for assignment
+  #
   permit_params :name, :email, :encrypted_password, :type, :mobile, :address
   #
   # or
@@ -12,7 +14,6 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
   index do
     selectable_column
     id_column
@@ -47,18 +48,5 @@ ActiveAdmin.register User do
       f.input :type
     end
     f.actions
-  end
-
-  show do
-    attributes_table do
-      row :id
-      row(:name)
-      row(:email)
-      row(:mobile)
-      row(:address)
-      row(:type)
-      row(:created_at)
-      row(:updated_at)
-    end
   end
 end

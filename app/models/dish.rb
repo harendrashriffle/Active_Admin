@@ -9,4 +9,16 @@ class Dish < ApplicationRecord
 
   validates :name, uniqueness: {scope: :restaurant_id}, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["blob_id", "category_id", "created_at", "id", "name", "price", "restaurant_id", "updated_at", "record_id", "record_type"]
+  end
+
+  # def self.ransackable_attributes(auth_object = nil)
+  #   [, "created_at", "id", "name"]
+  # end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["cart_items", "carts", "category", "image_attachment", "image_blob", "order_items", "orders", "restaurant"]
+  end
 end
