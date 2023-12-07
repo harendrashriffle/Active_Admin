@@ -45,4 +45,10 @@ ActiveAdmin.register Restaurant do
       row 'owner',:user_id.name
     end
   end
+
+  # controller do
+  #   def scoped_collection
+  #     super.includes :owner # prevents N+1 queries to your database
+  #   end
+  # end
 end
