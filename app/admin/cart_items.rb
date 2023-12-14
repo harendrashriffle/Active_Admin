@@ -15,4 +15,6 @@ ActiveAdmin.register CartItem do
   #   permitted
   # end
   
+
+  menu priority: 7
 end

@@ -17,7 +17,7 @@ ActiveAdmin.register Restaurant do
 
   index do
     selectable_column
-    id_column
+    column 'Rest. id', :id
     column :image do |obj|
       image_tag (obj&.image), width: 120, height: 50 rescue nil
     end
@@ -51,4 +51,24 @@ ActiveAdmin.register Restaurant do
   #     super.includes :owner # prevents N+1 queries to your database
   #   end
   # end
+
+  form restaurant: 'Add Restaurant' do |f|
+    inputs 'Details' do
+      input :name
+      input :status
+      input :location
+      # input :image, label: "Publish Post At"
+      li "Created at #{f.object.created_at}" unless f.object.new_record?
+      # input :category
+    end
+    panel 'Markup' do
+      "The following can be used in the content below..."
+    end
+    inputs 'Content', :name
+    para "Press cancel to return to the list without saving."
+    actions
+  end
+
+  menu priority: 3
+
 end

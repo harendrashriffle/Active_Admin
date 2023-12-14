@@ -15,4 +15,5 @@ ActiveAdmin.register OrderItem do
   #   permitted
   # end
   
+  menu priority: 8
 end

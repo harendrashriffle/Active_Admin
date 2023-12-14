@@ -14,5 +14,16 @@ ActiveAdmin.register Category do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  index do
+    selectable_column
+    column 'Catg. id', :id
+    column :name
+    actions
+  end
   
+  filter :id, label: "Catg. id"
+  filter :name
+
+  menu priority: 4
 end

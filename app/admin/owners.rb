@@ -16,14 +16,14 @@ ActiveAdmin.register Owner do
   # end
   index do
     selectable_column
-    id_column
+    column 'Owner id', :id
     column :name
     column :email
     column :mobile
     column :address
     column :type
-    column :created_at
-    column :updated_at
+    # column :created_at
+    # column :updated_at
     actions
   end
 
@@ -33,8 +33,8 @@ ActiveAdmin.register Owner do
   filter :mobile
   filter :address
   filter :type
-  filter :created_at
-  filter :updated_at
+  # filter :created_at
+  # filter :updated_at
 
 
 
@@ -49,4 +49,6 @@ ActiveAdmin.register Owner do
     end
     f.actions
   end
+
+  menu parent: 'Users'
 end
